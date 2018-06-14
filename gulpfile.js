@@ -16,9 +16,10 @@ const browserSync = require('browser-sync').create();
 // run: gulp watch
 // Watches for file changes and refreshes the browser on save
 gulp.task('watch', function (done) {
-  gulp.watch('src/sass/**/*.scss', gulp.series('sass'));
+  gulp.watch('src/sass/**/*.scss', gulp.series('sass')).on('change', browserSync.reload);
   gulp.watch('src/*.html', gulp.series('copy-html'));
-  gulp.watch('src/*.html').on('change', browserSync.reload);
+  gulp.watch('src/js/**/*.js', gulp.series('scripts')).on('change', browserSync.reload);
+  gulp.watch('dist/*.html').on('change', browserSync.reload);
 
   browserSync.init({
     server: 'dist/',
