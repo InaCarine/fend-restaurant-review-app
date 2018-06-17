@@ -1,0 +1,13 @@
+#map {
+  height: 40vh; // old: 400px
+  background-color: #ccc;
+
+  &:focus { outline: $primary_color solid 4px; }
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out,
+.leaflet-marker-icon {
+  &:focus { outline: $primary_color solid 4px; }
+}
+
+.inside #map { border-bottom: 4px solid $secondary_color; }

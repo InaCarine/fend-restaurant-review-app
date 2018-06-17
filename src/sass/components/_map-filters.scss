@@ -1,0 +1,46 @@
+/* Filters */
+.filter-options {
+  padding: 1.5rem 5%;
+  background-color: $secondary_color;
+
+  h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 0 1.5rem;
+  }
+
+  select {
+    width: 100%;
+    height: 3.5rem;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    background-color: #fff;
+    border: 1px solid #fff;
+  }
+
+  select + select { margin-top: 1rem; }
+
+  @media screen and (min-width: $bp_x-small) {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: 1rem 2rem;
+
+    h2 {
+      grid-column: 1/3;
+      margin: 0;
+    }
+
+    select + select { margin-top: 0; }
+  }
+
+  @media screen and (min-width: $bp_medium) {
+    grid-template-columns: auto repeat(2, minmax(auto, 30rem));
+    justify-content: center;
+    align-items: center;
+
+    h2 { grid-column: 1/2; }
+  }
+}

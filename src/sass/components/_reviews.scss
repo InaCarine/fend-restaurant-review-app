@@ -1,0 +1,78 @@
+.reviews__container h2 {
+  color: #f58500;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: .6em;
+}
+.reviews__list {
+  margin: 0;
+  padding: 0;
+  
+  li {
+    font-size: 1.4rem;
+    background-color: #fff;
+    border: 2px solid #f3f3f3;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    display: block;
+    list-style-type: none;
+    padding: 0 0 2rem;
+  }
+
+  li + li { margin-top: 2rem; }
+}
+
+.review__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem;
+  color: #fff;
+  background-color: $black;
+  border-top-left-radius: 2rem;
+}
+
+.review__name,
+.review__date { margin: 0; }
+
+.review__name { font-size: 1.6rem; }
+.review__date { color: #cccccc; }
+
+.review__comment {
+  padding: 0 2rem;
+  margin-bottom: 0;
+}
+
+.review__rating {
+  display: inline-block;
+  padding: .4rem 1rem;
+  margin: 2rem 0 0 2rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: $primary_color;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: $bp_medium) {
+  .reviews__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+
+    li + li { margin-top: 0; }
+  }
+}
+
+@media screen and (min-width: $bp_large) {
+  .restaurant__name,
+  .reviews__container h2 { font-size: 3rem; }
+  
+  .review__comment { font-size: 1.6rem; }
+}
+
+@media screen and (min-width: $bp_x-large) {
+  .reviews__list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,19 @@
+//
+// Functions
+//
+// TODO: find the one I did
+// TODO: This will create long numbers? Unless 8pt stops that?
+@function rem($pixels) {
+  @return $pixels / $base_font_size * 1rem;
+}
+
+//
+// Placeholders
+//
+// TODO: Find out usage, is it for extend?
+// Reset buttons styles, for when you need a completly different style?? Clearfix??
+
+//
+// Mixins
+//
+// TODO: Remove if no useful mixins needed

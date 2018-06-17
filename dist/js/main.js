@@ -6,6 +6,7 @@ var markers = [];
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', event => {
+  registerServiceWorker();
   initMap(); // added 
   fetchNeighborhoods();
   fetchCuisines();
@@ -86,18 +87,6 @@ initMap = () => {
 
   updateRestaurants();
 };
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
@@ -129,7 +118,7 @@ updateRestaurants = () => {
 resetRestaurants = restaurants => {
   // Remove all restaurants
   self.restaurants = [];
-  const ul = document.getElementById('restaurants-list');
+  const ul = document.querySelector('.restaurants__list');
   ul.innerHTML = '';
 
   // Remove all map markers
@@ -142,7 +131,7 @@ resetRestaurants = restaurants => {
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  const ul = document.getElementById('restaurants-list');
+  const ul = document.querySelector('.restaurants__list');
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
@@ -156,8 +145,9 @@ createRestaurantHTML = restaurant => {
   const li = document.createElement('li');
 
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
+  image.className = 'restaurant__img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.alt;
   li.append(image);
 
   const name = document.createElement('h2');
@@ -170,10 +160,13 @@ createRestaurantHTML = restaurant => {
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  address.setAttribute('aria-label', 'Address: ' + restaurant.address);
   li.append(address);
 
   const more = document.createElement('a');
+  more.className = 'btn';
   more.innerHTML = 'View Details';
+  more.setAttribute('aria-label', 'View more details of restaurant ' + restaurant.name);
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more);
 
@@ -193,13 +186,15 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     }
   });
 };
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
+
+/*
+* Register the service worker
+*/
+function registerServiceWorker() {
+  if (!navigator.serviceWorker) return;
+  navigator.serviceWorker.register('sw.js').then(function (reg) {
+    //console.log('Registration succeeded. Scope is ' + reg.scope);
+  }).catch(function (error) {
+    //console.log('Registration failed with ' + error);
   });
-} */
+}

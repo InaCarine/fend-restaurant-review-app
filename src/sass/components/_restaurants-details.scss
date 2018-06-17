@@ -1,0 +1,69 @@
+.restaurant__name {
+  color: $primary_color;
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin: 0 0 .4em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.restaurant__img {
+  border-top-left-radius: 2rem;
+  max-width: 100%;
+}
+
+.restaurant__info {
+  padding-bottom: 2rem;
+  margin-top: -6px;
+  background-color: #fff;
+  border-bottom-right-radius: 2rem;
+}
+
+.restaurant__address {
+  font-size: 1.4rem;
+  padding: 0 2rem;
+  margin: 1rem 0;
+}
+
+.restaurant__cuisine {
+  background-color: $black;
+  color: #ddd;
+  font-size: 1.4rem;
+  letter-spacing: 1rem;
+  margin: 0 0 2rem;
+  padding: .8em 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.restaurant__hours {
+  width: 100%;
+  padding: 0 2rem;
+
+  td {
+    padding: .4em 0;
+    font-size: 1.4rem;
+    color: #666;
+    vertical-align: top;
+
+    &:first-of-type { padding-right: 3rem; }
+  }
+}
+
+@media screen and (min-width: $bp_medium) {
+  .restaurant__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 2rem;
+  }
+
+  .restaurant__name { grid-column: 1/4; }
+  .restaurant__info { margin-top: 0; }
+}
+
+@media screen and (min-width: $bp_large) {
+  .restaurant__cuisine,
+  .restaurant__address { font-size: 1.6rem; }
+  .restaurant__hours td { font-size: 1.5rem; }
+}

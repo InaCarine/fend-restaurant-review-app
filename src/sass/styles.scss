@@ -1,351 +1,63 @@
-$bp_x-small: 25em; // 480px
-$bp_small: 30em; // 480px
-$bp_medium: 48em; // 768px
-$bp_large: 60em; // 960px
-$bp_x-large: 75em; // 1200px
+@charset "UTF-8";
 
-$primary_color: #f18200;
-$secondary_color: #3397DB;
+// SETTINGS
+// variables for color, spacing, typo
+@import 'settings';
 
-/*
-* GLOBAL STYLES
-*/
-html {
-  font-size: 62.5%;
-   *, *::after, *::before { box-sizing: border-box; }
-}
+// TOOLS
+// functions, mixins
+@import 'tools';
 
-body {
-	font-family: 'Open Sans', Helvetica, sans-serif;
-	font-size: 1.6rem;
-	color: #333;
-	line-height: 1.5;
+// ELEMENTS
+// HTML elements: li, a, html, body etc. Base styles
+@import 'elements';
+
+// Objects
+// Description: Mainly for layout, shouldn't contain theme/design
+// Careful when editing as it will break layout
+// .o-grid, .o-grid__item, .o-grid__header, .o-grid__footer/main/sidebar
+
+// Components
+// Description: buttons, accordions, forms
+// Can be placed anywhere without breaking layout
+// .c-btn, .c-btn--large, c-btn--yellow etc
+// .c-accordion
+// .c-social-media__list
+@import 'components/header-nav';
+@import 'components/footer';
+@import 'components/map';
+@import 'components/map-filters';
+@import 'components/breadcrumbs';
+@import 'components/buttons';
+@import 'components/restaurants-list';
+@import 'components/restaurants-details';
+@import 'components/reviews';
+
+// Patterns
+// Description: collection of components, header, footer
+
+// Scope
+// Description: page specific styles, f.ex scopes/home
+
+// Utlities
+// Description: does usually just one thing and often with !important
+@import 'utilities';
+
+
+#main {
   background-color: #f3f3f3;
 }
 
-a {
-  color: orange;
-  
-  &:hover, &:focus {
-    color: darken($color: $secondary_color, $amount: 10%);
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 2rem;
-}
-
-
-
-/*
-* GLOBAL LAYOUT
-*/
-
-/* NAVIGATION */
-nav {
-  padding: 1.2em;
-  font-size: 1.4rem;
-  text-align: center;
-  background-color: #252831;
-
-  h1 {
-    margin: 0;
-    font-size: inherit;
-    font-weight: 200;
-    letter-spacing: 10px;
-    text-transform: uppercase;
-
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-  }
-
-  @media screen and (min-width: $bp_small) {
-    padding: 1.5em;
-    font-size: 1.6rem;
-  }
-
-  @media screen and (min-width: $bp_medium) {
-    font-size: 1.8rem;
-  }
-}
-
-
-#maincontent {
-  background-color: #f3f3f3;
-}
-
-
-#footer {
-  background-color: #444;
-  color: #aaa;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  padding: 2rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-
-
-/*
-* MAP
-*/
-#map {
-  height: 40vh; // old: 400px
-  background-color: #ccc;
-}
-
-
-
-/*
-* HOME
-*/
-
-/* Filters */
-.filter-options {
-  padding: 1.5rem 5%;
-  background-color: $secondary_color;
-
-  h2 {
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: normal;
-    line-height: 1;
-    margin: 0 0 1.5rem;
-  }
-
-  select {
-    width: 100%;
-    height: 3.5rem;
-    padding: 0 10px;
-    font-size: 1.5rem;
-    letter-spacing: 0;
-    background-color: #fff;
-    border: 1px solid #fff;
-  }
-
-  select + select { margin-top: 1rem; }
-
-  @media screen and (min-width: $bp_x-small) {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-gap: 1rem 2rem;
-
-    h2 {
-      grid-column: 1/3;
-      margin: 0;
-    }
-
-    select + select { margin-top: 0; }
-  }
-
-  @media screen and (min-width: $bp_medium) {
-    grid-template-columns: auto repeat(2, minmax(auto, 30rem));
-    justify-content: center;
-    align-items: center;
-
-    h2 { grid-column: 1/2; }
-  }
-}
-
-
-/* ====================== Restaurant Listing ====================== */
-#restaurants-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-
-  li {
-    max-width: 36rem;
-    padding: 2rem;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
-  }
-
-  li + li { margin-top: 2rem; }
-
-  h2 {
-    color: $primary_color;
-    font-size: 1.6rem;
-    font-weight: 200;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    margin: .8em 0 .2em;
-    text-transform: uppercase;
-  }
-
-  .restaurant-img {
-    background-color: #ccc;
-    display: block;
-    margin: 0;
-    max-width: 100%;
-  }
-
-  p {
-    margin: 0;
-    font-size: 1.4rem;
-  }
-
-  a {
-    background-color: $primary_color;
-    color: #fff;
-    border-radius: 3px;
-    display: inline-block;
-    font-size: 1.3rem;
-    margin-top:2rem;
-    padding: 1rem 3rem;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    &:hover {
-      background-color: $secondary_color;
-      margin: 1.9rem 0 .1rem;
-      box-shadow: 0px 3px 8px 0px rgba(12, 12, 13, 0.2);
-    }
-  }
-
-  @media screen and (min-width: $bp_small) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-
-    li {
-      display: grid;
-      //max-width: 100%;
-    }
-
-    li + li { margin-top: 0; }
-  }
-
-  @media screen and (min-width: $bp_medium) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media screen and (min-width: $bp_large) {
-    max-width: 80vw;
-    grid-gap: 3rem;
-  }
-
-  @media screen and (min-width: $bp_x-large) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-
-
-/*
-* RESTAURANT INFO PAGE STYLES
-*/
-#breadcrumb {
-    padding: 1rem 2rem;
-    list-style: none;
-    background-color: #f3f3f3;
-    font-size: 1.5rem;
-    margin: 0 auto;
-
-    li {
-      display: inline;
-
-      a {
-        color: $secondary_color;
-        text-decoration: none;
-      }
-      
-      a:hover {
-        color: darken($color: $secondary_color, $amount: 10%);
-        text-decoration: underline;
-      }
-    }
-    
-    li + li::before {
-      padding: .8rem;
-      color: black;
-      content: "/\00a0";
-    }
-
-    @media screen and (min-width: $bp_large) {
-      max-width: 120rem;
-    }
-}
-
-
-.inside #map { border-bottom: 4px solid $secondary_color; }
-
-
-/* Restaurant Details */
-#restaurant-name {
-  color: $primary_color;
-  font-family: Arial,sans-serif;
-  font-size: 20pt;
-  font-weight: 200;
-  letter-spacing: 0;
-  margin: 15px 0 30px;
-  text-transform: uppercase;
-  line-height: 1.1;
-}
-
-#restaurant-img {
-	width: 90%;
-}
-
-#restaurant-address {
-  font-size: 12pt;
-  margin: 10px 0px;
-}
-
-#restaurant-cuisine {
-  background-color: #333;
-  color: #ddd;
-  font-size: 12pt;
-  font-weight: 300;
-  letter-spacing: 10px;
-  margin: 0 0 20px;
-  padding: 2px 0;
-  text-align: center;
-  text-transform: uppercase;
-	width: 90%;
-}
-
-#restaurant-container, #reviews-container {
+.restaurant__container, .reviews__container {
+  padding: 3rem 6%;
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 3rem 1.5rem;
 }
 
-#reviews-container {
-  padding: 30px 40px 80px;
-}
-#reviews-container h2 {
-  color: #f58500;
-  font-size: 24pt;
-  font-weight: 300;
-  letter-spacing: -1px;
-  padding-bottom: 1pt;
-}
-#reviews-list {
-  margin: 0;
-  padding: 0;
-}
-#reviews-list li {
-  background-color: #fff;
-    border: 2px solid #f3f3f3;
-  display: block;
-  list-style-type: none;
-  margin: 0 0 30px;
-  overflow: hidden;
-  padding: 0 20px 20px;
-  position: relative;
-  width: 85%;
-}
-#reviews-list li p {
-  margin: 0 0 10px;
-}
-#restaurant-hours td {
-  color: #666;
+@media screen and (min-width: $bp_large) {
+  .restaurant__container, .reviews__container {
+    max-width: 80vw;
+    padding: 3rem 0;
+    margin: 0 auto;
+  }
 }

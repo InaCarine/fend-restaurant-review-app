@@ -1,0 +1,26 @@
+.breadcrumb {
+    padding: 1rem 2rem;
+    background-color: #f3f3f3;
+    font-size: 1.5rem;
+
+    a {
+      color: $secondary_color;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: darken($color: $secondary_color, $amount: 10%);
+      text-decoration: underline;
+    }
+    
+    a + span::before {
+      padding: .8rem;
+      color: $black;
+      content: "/\00a0";
+    }
+
+    @media screen and (min-width: $bp_large) {
+      max-width: 80vw;
+      margin: 0 auto;
+    }
+}

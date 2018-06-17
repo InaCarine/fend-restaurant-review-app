@@ -1,0 +1,39 @@
+html {
+  font-size: 62.5%;
+   *, *::after, *::before { box-sizing: border-box; }
+}
+
+body {
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	font-size: 1.6rem;
+	color: #333;
+	line-height: 1.5;
+  background-color: #f3f3f3;
+}
+
+a {
+  color: $primary_color;
+  
+  &:hover, &:focus {
+    color: darken($color: $secondary_color, $amount: 10%);
+  }
+
+  &:focus { outline: 2px dotted $secondary_color; }
+}
+
+[href="#main"] {
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+
+[href="#main"]:focus {
+  right: auto;
+  padding: 1.5rem;
+  color: #fff;
+  background-color: $primary_color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 2rem;
+}
