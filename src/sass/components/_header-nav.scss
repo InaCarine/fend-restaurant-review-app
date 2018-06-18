@@ -1,25 +1,21 @@
 // NAVIGATION
-nav {
+.logo {
   padding: 1.2em;
+  margin: 0;
+  background-color: $black;
   font-size: 1.4rem;
   text-align: center;
-  background-color: $black;
+  font-weight: 200;
+  color: #fff;
+  letter-spacing: 10px;
+  text-transform: uppercase;
 
-  h1 {
-    margin: 0;
+  a {
     color: #fff;
-    font-size: inherit;
-    font-weight: 200;
-    letter-spacing: 10px;
-    text-transform: uppercase;
-
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    a:hover, a:focus { color: $primary_color; }
+    text-decoration: none;
   }
+
+  a:hover, a:focus { color: $primary_color; }
 
   @media screen and (min-width: $bp_small) {
     padding: 1.5em;

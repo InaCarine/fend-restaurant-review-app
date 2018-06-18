@@ -5,7 +5,6 @@ var newMap;
  * Initialize map as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
-  registerServiceWorker();
   initMap();
 });
 
@@ -113,7 +112,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.querySelector('.reviews__container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -169,6 +168,7 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.querySelector('.breadcrumb');
   const crumb = document.createElement('span');
+  crumb.setAttribute('aria-current', 'page');
   crumb.innerHTML = restaurant.name;
   breadcrumb.appendChild(crumb);
 }

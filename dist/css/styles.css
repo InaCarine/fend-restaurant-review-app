@@ -44,40 +44,36 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 2rem;
 }
 
-nav {
+.logo {
   padding: 1.2em;
+  margin: 0;
+  background-color: #252831;
   font-size: 1.4rem;
   text-align: center;
-  background-color: #252831;
-}
-
-nav h1 {
-  margin: 0;
-  color: #fff;
-  font-size: inherit;
   font-weight: 200;
+  color: #fff;
   letter-spacing: 10px;
   text-transform: uppercase;
 }
 
-nav h1 a {
+.logo a {
   color: #fff;
   text-decoration: none;
 }
 
-nav h1 a:hover, nav h1 a:focus {
+.logo a:hover, .logo a:focus {
   color: #f18200;
 }
 
 @media screen and (min-width: 30em) {
-  nav {
+  .logo {
     padding: 1.5em;
     font-size: 1.6rem;
   }
 }
 
 @media screen and (min-width: 48em) {
-  nav {
+  .logo {
     font-size: 1.8rem;
   }
 }
@@ -373,7 +369,7 @@ nav h1 a:hover, nav h1 a:focus {
   }
 }
 
-.reviews__container h2 {
+.reviews__container h3 {
   color: #f58500;
   font-size: 2rem;
   font-weight: 300;
@@ -456,7 +452,7 @@ nav h1 a:hover, nav h1 a:focus {
 
 @media screen and (min-width: 60em) {
   .restaurant__name,
-  .reviews__container h2 {
+  .reviews__container h3 {
     font-size: 3rem;
   }
   .review__comment {

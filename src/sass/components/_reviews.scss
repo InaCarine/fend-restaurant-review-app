@@ -1,4 +1,4 @@
-.reviews__container h2 {
+.reviews__container h3 {
   color: #f58500;
   font-size: 2rem;
   font-weight: 300;
@@ -66,7 +66,7 @@
 
 @media screen and (min-width: $bp_large) {
   .restaurant__name,
-  .reviews__container h2 { font-size: 3rem; }
+  .reviews__container h3 { font-size: 3rem; }
   
   .review__comment { font-size: 1.6rem; }
 }
