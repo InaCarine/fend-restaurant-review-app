@@ -9,7 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     //const port = 8887 // Change this to your server port
-    return '/dist/data/restaurants.json';
+    return '//inacarine.github.io/dist/data/restaurants.json';
   }
 
   /**
